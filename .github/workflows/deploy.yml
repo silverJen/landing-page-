@@ -29,10 +29,15 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          echo "Dependencies installed successfully"
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          echo "Build completed successfully"
+          ls -la out/ || echo "out directory not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
